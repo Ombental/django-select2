@@ -76,7 +76,7 @@
         if (inlineFieldName.length > 0) {
           inlineFieldName = inlineFieldName.join('-')
           var inlineFieldNamePrefix = name.split('-', 2).join('-')
-          $('[data-select2-dependent-fields~=' + inlineFieldName + ']' +'[name^=' + inlineFieldNamePrefix + ']').each(function () {
+          $('[data-select2-dependent-fields~=' + inlineFieldName + ']' + '[name^=' + inlineFieldNamePrefix + ']').each(function () {
             $(this).val('').trigger('change')
           })
         }
