@@ -25,7 +25,6 @@
           }
 
           var dependentFields = $element.data('select2-dependent-fields')
-          var dependentFields = $element.data('select2-dependent-fields')
           if (dependentFields) {
             dependentFields = dependentFields.trim().split(/\s+/)
             $.each(dependentFields, function (i, dependentField) {
@@ -71,6 +70,15 @@
         $('[data-select2-dependent-fields~=' + name + ']').each(function () {
           $(this).val('').trigger('change')
         })
+
+        // This is for inlines, I checked this for a specific case
+        var inlineFieldName = name.split('-').slice(2)
+        if (inlineFieldName.length > 0) {
+          inlineFieldName = inlineFieldName.join('-')
+          $('[data-select2-dependent-fields~=' + inlineFieldName + ']').each(function () {
+            $(this).val('').trigger('change')
+          })
+        }
       })
     })
     return this
